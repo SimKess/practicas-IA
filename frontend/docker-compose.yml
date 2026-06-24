@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: auth-jwt-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_BASE_URL: http://backend:8000
+      REACT_APP_API_TIMEOUT: "10000"
+      REACT_APP_TOKEN_REFRESH_THRESHOLD: "30"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - auth-network
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: auth-jwt-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=tu-clave-secreta-muy-segura-cambiar-en-produccion
+    networks:
+      - auth-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+networks:
+  auth-network:
+    driver: bridge
+
+networks:
+  auth-network:
+    driver: bridge
