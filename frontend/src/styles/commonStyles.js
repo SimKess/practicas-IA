@@ -208,3 +208,29 @@ export const InfoCardValue = styled.p`
   color: #333;
   font-weight: 600;
 `;
+
+export const SectionCard = styled.div`
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+`;
+
+export const SectionTitle = styled.h2`
+  margin-top: 0;
+  color: #1976d2;
+`;
+
+export const InfoCardDetail = styled.p`
+  margin: 0 0 8px 0;
+  color: #555;
+  font-size: 0.95rem;
+`;
+
+export const InfoCardSource = styled.p`
+  margin: 0;
+  font-size: 0.8rem;
+  color: #333;
+  font-weight: 600;
+`;

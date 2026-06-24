@@ -16,7 +16,12 @@ import {
   InfoCard,
   InfoCardLabel,
   InfoCardValue,
+  InfoCardDetail,
+  InfoCardSource,
+  SectionCard,
+  SectionTitle,
 } from '../styles/commonStyles';
+import { MICROSOFT_CERTIFICATIONS_2026 } from '../config/constants';
 
 /**
  * Página del Dashboard (protegida)
@@ -24,28 +29,6 @@ import {
 const Dashboard = () => {
   const { user, tokenTimeRemaining, logout } = useAuth();
   const navigate = useNavigate();
-  const microsoftCertifications2026 = [
-    {
-      title: 'Azure AI Apps and Agents Developer Associate',
-      detail: 'Reemplaza Azure AI Engineer Associate en especializaciones de IA (junio 2026).',
-      source: 'Anuncios Microsoft Partner Center, junio 2026',
-    },
-    {
-      title: 'Machine Learning Operations Engineer Associate',
-      detail: 'Nueva opción de skilling para AI Platform en Azure tras retiro de Azure Data Scientist Associate.',
-      source: 'Anuncios Microsoft Partner Center, junio 2026',
-    },
-    {
-      title: 'Cloud and AI Security Engineer Associate',
-      detail: 'Reemplaza Azure Security Engineer Associate para cambios previstos en julio 2026.',
-      source: 'Anuncios Microsoft Partner Center, junio 2026',
-    },
-    {
-      title: 'Agentic AI Business Solutions Architect',
-      detail: 'Nueva certificación para escenarios de Dynamics 365 y Power Platform en 2026.',
-      source: 'Anuncios Microsoft Partner Center, junio 2026',
-    },
-  ];
 
   /**
    * Formatea el tiempo restante a MM:SS
@@ -115,26 +98,18 @@ const Dashboard = () => {
           </WelcomeSubtitle>
         </WelcomeMessage>
 
-        <div
-          style={{
-            background: 'white',
-            padding: '24px',
-            borderRadius: '8px',
-            marginBottom: '24px',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-          }}
-        >
-          <h2 style={{ marginTop: 0, color: '#1976d2' }}>🎓 Certificaciones Microsoft 2026</h2>
+        <SectionCard>
+          <SectionTitle>🎓 Certificaciones Microsoft 2026</SectionTitle>
           <InfoGrid>
-            {microsoftCertifications2026.map((certification) => (
+            {MICROSOFT_CERTIFICATIONS_2026.map((certification) => (
               <InfoCard key={certification.title}>
                 <InfoCardLabel>{certification.title}</InfoCardLabel>
-                <p style={{ margin: '0 0 8px 0', color: '#555', fontSize: '0.95rem' }}>{certification.detail}</p>
-                <InfoCardValue style={{ fontSize: '0.8rem' }}>{certification.source}</InfoCardValue>
+                <InfoCardDetail>{certification.detail}</InfoCardDetail>
+                <InfoCardSource>{certification.source}</InfoCardSource>
               </InfoCard>
             ))}
           </InfoGrid>
-        </div>
+        </SectionCard>
 
         {/* Grid de información */}
         <InfoGrid>
