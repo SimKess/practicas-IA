@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import {
@@ -16,7 +16,12 @@ import {
   InfoCard,
   InfoCardLabel,
   InfoCardValue,
+  InfoCardDetail,
+  InfoCardSource,
+  SectionCard,
+  SectionTitle,
 } from '../styles/commonStyles';
+import { MICROSOFT_CERTIFICATIONS_2026 } from '../config/constants';
 
 /**
  * Página del Dashboard (protegida)
@@ -92,6 +97,19 @@ const Dashboard = () => {
             Has iniciado sesión correctamente. Tu sesión está protegida por autenticación JWT.
           </WelcomeSubtitle>
         </WelcomeMessage>
+
+        <SectionCard>
+          <SectionTitle>🎓 Certificaciones Microsoft 2026</SectionTitle>
+          <InfoGrid>
+            {MICROSOFT_CERTIFICATIONS_2026.map((certification) => (
+              <InfoCard key={certification.title}>
+                <InfoCardLabel>{certification.title}</InfoCardLabel>
+                <InfoCardDetail>{certification.detail}</InfoCardDetail>
+                <InfoCardSource>{certification.source}</InfoCardSource>
+              </InfoCard>
+            ))}
+          </InfoGrid>
+        </SectionCard>
 
         {/* Grid de información */}
         <InfoGrid>

@@ -40,4 +40,27 @@ export const CONFIG = {
   },
 };
 
+export const MICROSOFT_CERTIFICATIONS_2026 = [
+  {
+    title: 'Azure AI Apps and Agents Developer Associate',
+    detail: 'Reemplaza Azure AI Engineer Associate en especializaciones de IA (junio 2026).',
+    source: 'Anuncios Microsoft Partner Center, junio 2026',
+  },
+  {
+    title: 'Machine Learning Operations Engineer Associate',
+    detail: 'Nueva opción de skilling para AI Platform en Azure tras retiro de Azure Data Scientist Associate.',
+    source: 'Anuncios Microsoft Partner Center, junio 2026',
+  },
+  {
+    title: 'Cloud and AI Security Engineer Associate',
+    detail: 'Reemplaza Azure Security Engineer Associate para cambios previstos en julio 2026.',
+    source: 'Anuncios Microsoft Partner Center, junio 2026',
+  },
+  {
+    title: 'Agentic AI Business Solutions Architect',
+    detail: 'Nueva certificación para escenarios de Dynamics 365 y Power Platform en 2026.',
+    source: 'Anuncios Microsoft Partner Center, junio 2026',
+  },
+];
+
 export default CONFIG;
